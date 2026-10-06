@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Muhammad Riaz is a Full Stack Developer specializing in PHP and Laravel, based in Karachi, Pakistan. Explore his live projects and skills.">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Muhammad Riaz — Full Stack Developer">
+  <meta property="og:description" content="PHP and Laravel developer in Karachi, Pakistan. Explore live projects, skills, and contact details.">
+  <meta property="og:image" content="assets/muhammad-riaz.webp">
+  <title>Muhammad Riaz — Full Stack Developer | PHP &amp; Laravel</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b1220'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='Arial' font-size='20' font-weight='700' fill='%2365e1cf'%3EMR%3C/text%3E%3C/svg%3E">
+  <script>
+    document.documentElement.classList.add("has-js");
+    try {
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch (error) {
+      console.warn("The saved theme preference could not be read.", error);
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #0b1220;
+      --page-alt: #0f1929;
+      --surface: #111e30;
+      --surface-raised: #16253a;
+      --card-start: #173246;
+      --card-end: #11243a;
+      --card-inset: #102338;
+      --line: #27374b;
+      --text: #f1f5f9;
+      --muted: #b7c4d4;
+      --accent: #65e1cf;
+      --accent-ink: #09221f;
+      --accent-soft: rgba(101, 225, 207, .12);
+      --shadow: 0 14px 36px rgba(0, 0, 0, .23);
+      --header-bg: rgba(11, 18, 32, .94);
+      --radius: 18px;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+      --sans: Inter, "Segoe UI", Arial, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    html[data-theme="light"] {
+      color-scheme: light;
+      --page: #f5f8fa;
+      --page-alt: #edf3f5;
+      --surface: #ffffff;
+      --surface-raised: #f8fbfc;
+      --card-start: #e2f2ef;
+      --card-end: #f6fbfb;
+      --card-inset: #edf7f5;
+      --line: #d4e0e5;
+      --text: #17232d;
+      --muted: #475967;
+      --accent: #087c70;
+      --accent-ink: #ffffff;
+      --accent-soft: rgba(8, 124, 112, .09);
+      --shadow: 0 14px 36px rgba(25, 46, 58, .10);
+      --header-bg: rgba(245, 248, 250, .95);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+      overflow-x: clip;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--page);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 250ms ease, color 250ms ease;
+    }
+
+    body,
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      color: inherit;
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 200;
+      top: 10px;
+      left: 10px;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-shell {
+      display: flex;
+      width: min(1180px, calc(100% - 48px));
+      height: 76px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      flex: 0 0 auto;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -.035em;
+    }
+
+    .brand-mark {
+      color: var(--accent);
+    }
+
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .nav-viewport {
+      display: contents;
+    }
+
+    .primary-nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      transition: background-color 220ms ease, color 220ms ease;
+    }
+
+    .primary-nav a:hover,
+    .primary-nav a[aria-current="location"] {
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+
+    .nav-actions {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      cursor: pointer;
+      transition: transform 220ms var(--ease), border-color 220ms ease, background-color 220ms ease;
+    }
+
+    .icon-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .icon-button:active {
+      transform: scale(.96);
+    }
+
+    .icon-button svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .theme-sun {
+      display: none;
+    }
+
+    html[data-theme="light"] .theme-moon {
+      display: none;
+    }
+
+    html[data-theme="light"] .theme-sun {
+      display: block;
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      min-height: min(790px, calc(100svh - 76px));
+      padding: 88px 0 100px;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.2fr) minmax(250px, .8fr);
+      gap: clamp(48px, 8vw, 112px);
+    }
+
+    .hero-copy {
+      max-width: 660px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 650;
+      letter-spacing: .02em;
+    }
+
+    .hero-kicker::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      max-width: 12ch;
+      margin-bottom: 22px;
+      font-size: clamp(2.8rem, 6.5vw, 5.3rem);
+      font-weight: 760;
+      letter-spacing: -.065em;
+    }
+
+    .hero-title {
+      display: block;
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      max-width: 54ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 1.5vw, 1.2rem);
+    }
+
+    .hero-location {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-location span {
+      color: var(--accent);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      padding: 11px 18px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 650;
+      transition: transform 220ms var(--ease), box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+    }
+
+    .button-primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 22px var(--accent-soft);
+    }
+
+    .button:active {
+      transform: scale(.98);
+    }
+
+    .button-arrow {
+      display: inline-block;
+      transition: transform 220ms var(--ease);
+    }
+
+    .button:hover .button-arrow {
+      transform: translateX(4px);
+    }
+
+    .hero-portrait {
+      position: relative;
+      width: min(100%, 350px);
+      justify-self: end;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+
+    .hero-portrait::after {
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(transparent, rgba(7, 14, 24, .45));
+      content: "";
+      pointer-events: none;
+    }
+
+    .section {
+      padding: 104px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 76px;
+    }
+
+    .section-alt {
+      background: var(--page-alt);
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 4.4vw, 3.2rem);
+      font-weight: 740;
+      letter-spacing: -.055em;
+    }
+
+    .section-heading h2::after {
+      display: block;
+      width: 48px;
+      height: 3px;
+      margin-top: 13px;
+      border-radius: 999px;
+      background: var(--accent);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 500ms var(--ease);
+    }
+
+    .section-heading.is-revealed h2::after {
+      transform: scaleX(1);
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .about-layout {
+      display: grid;
+      align-items: start;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: clamp(24px, 5vw, 64px);
+    }
+
+    .about-story p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .about-story p + p {
+      margin-top: 16px;
+    }
+
+    .about-story strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .professional-summary {
+      padding: 26px;
+      border-left: 2px solid var(--accent);
+      background:
+        radial-gradient(ellipse at 100% 0%, var(--accent-soft), transparent 56%),
+        linear-gradient(145deg, var(--card-start), var(--card-end) 72%);
+    }
+
+    .professional-summary h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .professional-summary p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .about-stats {
+      display: grid;
+      margin-top: 24px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      display: flex;
+      min-height: 112px;
+      padding: 18px;
+      flex-direction: column;
+      justify-content: center;
+      border-top: 2px solid var(--accent);
+    }
+
+    .stat-value {
+      color: var(--accent);
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 760;
+      letter-spacing: -.05em;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: .06em;
+      line-height: 1.4;
+    }
+
+    .section-projects {
+      background: var(--page);
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-card {
+      display: grid;
+      padding: 26px;
+      grid-template-columns: minmax(170px, .38fr) minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    .experience-meta {
+      padding-right: 20px;
+      border-right: 1px solid var(--line);
+    }
+
+    .experience-meta h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .experience-meta p,
+    .experience-detail p,
+    .experience-detail li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .experience-meta p {
+      margin-bottom: 8px;
+    }
+
+    .experience-date {
+      display: inline-flex;
+      width: fit-content;
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent) !important;
+      font-size: 13px !important;
+      font-weight: 650;
+    }
+
+    .experience-detail ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 19px;
+    }
+
+    .experience-detail li::marker {
+      color: var(--accent);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse at 100% 0%, var(--accent-soft), transparent 54%),
+        linear-gradient(145deg, var(--card-start) 0%, var(--card-end) 76%);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .13), inset 0 1px 0 rgba(255, 255, 255, .07);
+      transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) translateY(0);
+      transition: transform 380ms var(--ease), border-color 300ms ease, box-shadow 380ms var(--ease), background 300ms ease;
+    }
+
+    .card::before {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 24px;
+      width: 56px;
+      height: 2px;
+      border-radius: 0 0 999px 999px;
+      background: var(--accent);
+      content: "";
+      opacity: .45;
+      transform: scaleX(.7);
+      transform-origin: left center;
+      transition: opacity 300ms ease, transform 380ms var(--ease), width 380ms var(--ease);
+      pointer-events: none;
+    }
+
+    .card::after {
+      position: absolute;
+      z-index: -1;
+      inset: 1px;
+      border-radius: calc(var(--radius) - 1px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, .055), transparent 40%, rgba(101, 225, 207, .035));
+      content: "";
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    .card-light {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(101, 225, 207, .14), transparent 68%);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(var(--light-x, -280px), var(--light-y, -280px), 0);
+      transition: opacity 350ms ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, .22), 0 0 30px var(--accent-soft), inset 0 1px 0 rgba(255, 255, 255, .10);
+      transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) translateY(-5px);
+    }
+
+    .card:hover::before,
+    .card:focus-within::before {
+      width: 86px;
+      opacity: .9;
+      transform: scaleX(1);
+    }
+
+    .card:hover .card-light,
+    .card:focus-within .card-light {
+      opacity: 1;
+    }
+
+    .project-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      --card-start: #18394a;
+      --card-end: #12283c;
+    }
+
+    html[data-theme="light"] .project-card {
+      --card-start: #e3f4f0;
+      --card-end: #f8fbfc;
+    }
+
+    .project-preview {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+      border-bottom: 1px solid var(--line);
+      background: var(--page-alt);
+    }
+
+    .project-preview::after {
+      position: absolute;
+      inset: 55% 0 0;
+      background: linear-gradient(transparent, rgba(7, 14, 24, .20));
+      content: "";
+      pointer-events: none;
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 1200ms var(--ease);
+    }
+
+    .project-card:hover .project-preview img,
+    .project-card:focus-within .project-preview img {
+      transform: translateY(calc(13rem - 100%));
+    }
+
+    .project-preview-no-image {
+      display: grid;
+      height: 100%;
+      place-items: center;
+      background: var(--surface-raised);
+    }
+
+    .project-preview-no-image span {
+      display: grid;
+      width: 78px;
+      height: 78px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      color: var(--accent);
+      font-size: 28px;
+      font-weight: 750;
+      letter-spacing: -.06em;
+    }
+
+    .project-content {
+      display: flex;
+      min-height: 190px;
+      padding: 20px;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      background: linear-gradient(180deg, transparent, rgba(6, 17, 29, .08));
+    }
+
+    .project-category {
+      display: inline-flex;
+      padding: 5px 9px;
+      align-items: center;
+      margin-bottom: 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .project-title {
+      margin-bottom: 8px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.3;
+    }
+
+    .project-title a {
+      transition: color 200ms ease;
+    }
+
+    .project-title a:hover {
+      color: var(--accent);
+    }
+
+    .project-description {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-tech {
+      margin-top: 16px;
+    }
+
+    .project-tech .tag {
+      padding: 5px 9px;
+      font-size: 11px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      margin-top: auto;
+      padding-top: 18px;
+      align-items: center;
+      gap: 7px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .project-link span {
+      transition: transform 220ms var(--ease);
+    }
+
+    .project-link:hover span {
+      transform: translate(3px, -3px);
+    }
+
+    .skills-section {
+      background: var(--page-alt);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      min-height: 174px;
+      padding: 24px;
+      --card-start: #173b47;
+      --card-end: #14283d;
+    }
+
+    html[data-theme="light"] .skill-card {
+      --card-start: #e0f3ef;
+      --card-end: #f5f9fb;
+    }
+
+    .skill-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 18px;
+    }
+
+    .skill-card h3::before,
+    .service-card h3::before {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      box-shadow: 0 0 12px var(--accent-soft);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--page-alt);
+      color: var(--muted);
+      font-size: 12px;
+      transition: transform 260ms var(--ease), border-color 260ms ease, color 260ms ease;
+    }
+
+    .skill-card:hover .tag,
+    .skill-card:focus-within .tag,
+    .project-card:hover .tag,
+    .project-card:focus-within .tag {
+      transform: translateY(-2px) scale(1.03);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .services-title {
+      margin: 48px 0 18px;
+      font-size: 20px;
+      letter-spacing: -.025em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .service-card {
+      min-height: 136px;
+      padding: 22px;
+      --card-start: #193448;
+      --card-end: #14263b;
+    }
+
+    html[data-theme="light"] .service-card {
+      --card-start: #e7f3f3;
+      --card-end: #f8fafc;
+    }
+
+    .service-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .service-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .languages-line {
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .languages-line strong {
+      margin-right: 8px;
+      color: var(--text);
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .credential-card {
+      padding: 22px;
+    }
+
+    .credential-card h3 {
+      margin-bottom: 9px;
+      font-size: 17px;
+    }
+
+    .credential-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .credential-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .credential-item {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 2px solid var(--accent);
+      border-radius: 13px;
+      background:
+        linear-gradient(110deg, var(--accent-soft), transparent 64%),
+        var(--card-inset);
+      transition: transform 300ms var(--ease), border-color 250ms ease, background-color 250ms ease;
+    }
+
+    .credential-item:hover {
+      transform: translateX(3px);
+      border-color: var(--accent);
+    }
+
+    .credential-item h4 {
+      margin: 0 0 5px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .credential-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-section {
+      background: var(--page);
+      padding-top: 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      align-items: center;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: clamp(36px, 8vw, 100px);
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      font-weight: 740;
+      letter-spacing: -.06em;
+      line-height: 1.08;
+    }
+
+    .contact-copy p {
+      max-width: 46ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      min-width: 0;
+      padding: 17px 20px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-link small {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    .contact-link span {
+      overflow-wrap: anywhere;
+      font-size: 15px;
+      font-weight: 650;
+      transition: color 220ms ease;
+    }
+
+    .contact-link:hover span {
+      color: var(--accent);
+    }
+
+    .contact-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      min-height: 42px;
+      padding: 9px 14px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: linear-gradient(145deg, var(--card-start), var(--card-end));
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 650;
+      transition: transform 220ms var(--ease), border-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 22px var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .site-footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      background: var(--page-alt);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-inner p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-top {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .has-js .reveal {
+      opacity: 0;
+      transform: translate3d(0, 24px, 0) scale(.99);
+      transition: opacity 560ms var(--ease), transform 560ms var(--ease);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .has-js .reveal.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .hero-entrance .hero-kicker,
+    .hero-entrance h1,
+    .hero-entrance .hero-subtitle,
+    .hero-entrance .hero-location,
+    .hero-entrance .button-row,
+    .hero-entrance .hero-portrait {
+      animation: hero-arrive 550ms var(--ease) both;
+    }
+
+    .hero-entrance h1 { animation-delay: 70ms; }
+    .hero-entrance .hero-subtitle { animation-delay: 140ms; }
+    .hero-entrance .hero-location { animation-delay: 210ms; }
+    .hero-entrance .button-row { animation-delay: 280ms; }
+    .hero-entrance .hero-portrait { animation-delay: 350ms; }
+
+    @keyframes hero-arrive {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1000px) {
+      .primary-nav a {
+        padding: 8px 9px;
+        font-size: 12px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      .nav-shell,
+      .container {
+        width: min(100% - 36px, 600px);
+      }
+
+      .nav-shell {
+        height: 68px;
+      }
+
+      .menu-button {
+        display: inline-grid;
+      }
+
+      .primary-nav {
+        position: absolute;
+        inset: 0 0 0 auto;
+        display: flex;
+        width: min(82vw, 340px);
+        height: 100%;
+        padding: 22px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 6px;
+        border-left: 1px solid var(--line);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        transform: translateX(100%);
+        transition: transform 320ms var(--ease);
+      }
+
+      .nav-viewport {
+        position: absolute;
+        z-index: 110;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: block;
+        height: calc(100vh - 68px);
+        overflow: hidden;
+        visibility: hidden;
+        pointer-events: none;
+        transition: visibility 0s linear 320ms;
+      }
+
+      .nav-viewport.is-open {
+        visibility: visible;
+        pointer-events: auto;
+        transition-delay: 0s;
+      }
+
+      .nav-viewport.is-open .primary-nav {
+        transform: translateX(0);
+      }
+
+      .primary-nav a {
+        padding: 13px 14px;
+        font-size: 16px;
+      }
+
+      .nav-scrim {
+        position: fixed;
+        z-index: 99;
+        inset: 68px 0 0;
+        visibility: hidden;
+        background: rgba(0, 0, 0, .46);
+        opacity: 0;
+        transition: opacity 250ms ease, visibility 250ms;
+      }
+
+      .nav-scrim.is-open {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 56px 0 78px;
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .hero-portrait {
+        width: min(66%, 285px);
+        justify-self: center;
+        grid-row: 1;
+      }
+
+      .hero-copy {
+        grid-row: 2;
+      }
+
+      .hero h1 {
+        max-width: 15ch;
+        font-size: clamp(2.75rem, 10vw, 4.6rem);
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .experience-meta {
+        padding: 0 0 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .credentials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-preview {
+        height: 190px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 15px;
+      }
+
+      .nav-shell,
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding-top: 38px;
+        gap: 26px;
+      }
+
+      .hero-portrait {
+        width: min(72%, 240px);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.55rem, 12vw, 3.6rem);
+      }
+
+      .button-row {
+        align-items: stretch;
+      }
+
+      .button {
+        padding-inline: 14px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-preview {
+        height: 205px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 0;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (hover: none), (prefers-reduced-motion: reduce) {
+      .card {
+        will-change: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .has-js .reveal,
+      .has-js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .hero-entrance .hero-kicker,
+      .hero-entrance h1,
+      .hero-entrance .hero-subtitle,
+      .hero-entrance .hero-location,
+      .hero-entrance .button-row,
+      .hero-entrance .hero-portrait {
+        animation: none;
+      }
+
+      .project-card:hover .project-preview img,
+      .project-card:focus-within .project-preview img {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#home" aria-label="Muhammad Riaz, home">Muhammad <span class="brand-mark">Riaz</span></a>
+      <div class="nav-viewport" id="navViewport">
+        <nav class="primary-nav" id="primaryNav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills &amp; Services</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.8 8.8 0 0 1 8.6 3.8 8.9 8.9 0 1 0 20.2 15.4Z"/></svg>
+          <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <button class="icon-button menu-button" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="primaryNav" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+  <main id="main">
+    <section class="hero container hero-entrance" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-kicker">Full Stack Developer</p>
+        <h1 id="hero-title">Muhammad Riaz<span class="hero-title">PHP &amp; Laravel Developer</span></h1>
+        <p class="hero-subtitle">Full Stack Developer | PHP &amp; Laravel Developer</p>
+        <p class="hero-location"><span aria-hidden="true">⌖</span> Karachi, Pakistan</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#projects">Explore projects <span class="button-arrow" aria-hidden="true">→</span></a>
+          <a class="button" href="assets/muhammad_riaz-cv.pdf" download="muhammad_riaz-cv.pdf">Download CV <span class="button-arrow" aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="assets/muhammad-riaz.webp" alt="Portrait of Muhammad Riaz" width="602" height="1200" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section class="section section-alt" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 id="about-title">Who I am</h2>
+        </div>
+        <div class="about-layout">
+          <div class="about-story reveal">
+            <p>I'm <strong>Muhammad Riaz</strong>, a Full Stack Developer specializing in building complete web applications — from responsive, pixel-accurate frontends to robust, scalable backend systems. I work comfortably across the entire stack, turning product requirements into production-ready software.</p>
+            <p>On the frontend, I build with <strong>HTML, CSS, JavaScript, and React</strong>, focusing on clean component architecture, performance, and interfaces that feel intuitive. On the backend, I develop with <strong>PHP and Laravel</strong>, designing RESTful APIs and structuring <strong>MySQL databases</strong> that stay reliable, secure, and easy to maintain as a product grows.</p>
+            <p>I care about writing code that other developers can actually work with — clear structure, sensible naming, and documentation that doesn't leave the next person guessing. I'm currently open to freelance projects, collaborations, and full-time roles where I can own features end to end.</p>
+          </div>
+          <article class="card professional-summary reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Professional Summary</h3>
+            <p>PHP &amp; Laravel Developer with 2+ years of hands-on experience building responsive, database-driven web applications using PHP, Laravel 12, MySQL, HTML, CSS, Bootstrap and jQuery. Experienced in RESTful APIs, Git, debugging and modern web development workflows. MERN Stack and CCNA trained, with additional experience in graphic design, computer operations, data entry and professional typing &amp; documentation.</p>
+          </article>
+        </div>
+        <div class="about-stats" aria-label="Professional highlights">
+          <div class="card stat-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <span class="stat-value">2+</span>
+            <span class="stat-label">YEARS OF EXPERIENCE</span>
+          </div>
+          <div class="card stat-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <span class="stat-value">7+</span>
+            <span class="stat-label">PROJECTS DELIVERED</span>
+          </div>
+          <div class="card stat-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <span class="stat-value">Full</span>
+            <span class="stat-label">STACK COVERAGE</span>
+          </div>
+          <div class="card stat-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <span class="stat-value">24/7</span>
+            <span class="stat-label">OPEN TO IDEAS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 id="experience-title">Experience</h2>
+        </div>
+        <div class="experience-list">
+          <article class="card experience-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="experience-meta">
+              <h3>Intern, Residential Sales &amp; Marketing Department</h3>
+              <p>Savills Pakistan (Pvt.) Ltd, Karachi</p>
+              <p class="experience-date">21 Jul 2026 - 21 Sep 2026</p>
+            </div>
+            <div class="experience-detail">
+              <ul>
+                <li>Completed a two-month internship in a corporate environment; certificate issued 23 Sep 2026.</li>
+                <li>Assisted with social media marketing, digital content management and content planning.</li>
+                <li>Supported audience engagement, online promotion and digital brand activities.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card experience-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="experience-meta">
+              <h3>Web Development &amp; PHP Laravel Development</h3>
+              <p class="experience-date">Jan 2023 - Present</p>
+            </div>
+            <div class="experience-detail">
+              <ul>
+                <li>Build responsive and dynamic web applications using PHP and Laravel.</li>
+                <li>Develop CRUD systems, database-driven features, RESTful APIs, authentication, debugging and performance improvements.</li>
+                <li>Use Git for version control and maintain structured, maintainable code.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card experience-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="experience-meta">
+              <h3>Web Development Intern</h3>
+              <p class="experience-date">1 Jun 2025 - 1 Sep 2025</p>
+            </div>
+            <div class="experience-detail">
+              <ul>
+                <li>Practical experience in responsive web development using HTML, CSS, JavaScript, Bootstrap, PHP and Laravel.</li>
+                <li>Worked on database integration, debugging, Git-based version control and professional development workflows.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card experience-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="experience-meta">
+              <h3>Computer Operator</h3>
+              <p class="experience-date">Mar 2021 - Dec 2025</p>
+            </div>
+            <div class="experience-detail">
+              <ul>
+                <li>Daily computer operations, data entry, digital records and office documentation.</li>
+                <li>Prepared and maintained documents with accurate formatting using common office software.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card experience-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="experience-meta">
+              <h3>Graphics Designer</h3>
+              <p class="experience-date">Feb 2020 - Present</p>
+            </div>
+            <div class="experience-detail">
+              <ul>
+                <li>Professional graphics and visual materials for digital and print media, branding and social content.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 id="projects-title">Selected projects</h2>
+          <p>A selection of my live web projects.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview"><img src="assets/savilscrm.webp" alt="Screenshot of Savills Pakistan CRM" width="807" height="673" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <span class="project-category">CRM</span>
+              <h3 class="project-title"><a href="https://savillspakistancrm.is-great.org/" target="_blank" rel="noopener noreferrer">Savills Pakistan CRM</a></h3>
+              <p class="project-description">A centralized real estate CRM system designed to manage clients, properties, leads, deals, viewings, offers, and related business activities through an organized management dashboard.</p>
+              <div class="tag-list project-tech" aria-label="Technologies: Laravel 12, PHP, MySQL"><span class="tag">Laravel 12</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+              <a class="project-link" href="https://savillspakistancrm.is-great.org/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview"><img src="assets/smart.webp" alt="Screenshot of SmartDLV" width="414" height="850" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <span class="project-category">QR verification system</span>
+              <h3 class="project-title"><a href="https://smartdlv.is-great.org/" target="_blank" rel="noopener noreferrer">SmartDLV</a></h3>
+              <p class="project-description">A digital driver license management and verification system designed to manage driver records, license information, QR verification, and administrative operations efficiently.
+
+</p>
+              <div class="tag-list project-tech" aria-label="Technologies: Laravel 12, PHP, MySQL, QR verification"><span class="tag">Laravel 12</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">QR verification</span></div>
+              <a class="project-link" href="https://smartdlv.is-great.org/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview"><img src="assets/mrshopee.webp" alt="Screenshot of MR Shopee" width="414" height="850" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <span class="project-category">E-commerce</span>
+              <h3 class="project-title"><a href="https://mrshopee.free.je/" target="_blank" rel="noopener noreferrer">MR Shopee</a></h3>
+              <p class="project-description">A responsive e-commerce platform featuring product listings, intuitive navigation, and a user-friendly shopping experience built for modern online retail.</p>
+              <div class="tag-list project-tech" aria-label="Technologies: Laravel 8, PHP, MySQL, HTML, CSS, JavaScript"><span class="tag">Laravel 8</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+              <a class="project-link" href="https://mrshopee.free.je/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview"><img src="assets/savillsblogs.webp" alt="Screenshot of Savills Pakistan Blogs" width="728" height="850" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <span class="project-category">Blog</span>
+              <h3 class="project-title"><a href="https://savillspakistan.is-great.org" target="_blank" rel="noopener noreferrer">Savills Pakistan Blogs</a></h3>
+              <p class="project-description">A web-based cybersecurity toolkit that provides a collection of security and reconnaissance tools in one centralized platform. It is designed for security learning, testing, and ethical cybersecurity workflows with a simple and user-friendly interface.</p>
+              <div class="tag-list project-tech" aria-label="Technologies: Laravel 12, PHP, MySQL"><span class="tag">Laravel 12</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+              <a class="project-link" href="https://savillspakistan.is-great.org" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview">
+              <div class="project-preview-no-image" aria-hidden="true"><span>WC</span></div>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Charity website</span>
+              <h3 class="project-title"><a href="https://waziristancharity.free.je/" target="_blank" rel="noopener noreferrer">Waziristan Charity Website</a></h3>
+              <p class="project-description">A full-stack charity platform built to promote community welfare, manage charitable initiatives, and connect donors with meaningful causes through a modern, responsive, and user-friendly web experience.</p>
+              <div class="tag-list project-tech" aria-label="Technologies: Laravel 12, PHP, MySQL"><span class="tag">Laravel 12</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+              <a class="project-link" href="https://waziristancharity.free.je/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview"><img src="assets/mrbaditv.webp" alt="Screenshot of MR TV News Channel" width="414" height="850" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <span class="project-category">News channel</span>
+              <h3 class="project-title"><a href="https://mrbaditv.social-networking.me/" target="_blank" rel="noopener noreferrer">MR TV News Channel</a></h3>
+              <p class="project-description">A modern and responsive online news platform designed to deliver the latest news, updates, and media content through a clean and user-friendly interface. The platform provides an accessible digital experience for viewers across desktop and mobile devices.</p>
+              <div class="tag-list project-tech" aria-label="Technologies: HTML, CSS, JavaScript"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+              <a class="project-link" href="https://mrbaditv.social-networking.me/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <div class="project-preview"><img src="assets/mrofficial.webp" alt="Screenshot of MR Official Cyber Security Toolkit" width="877" height="850" loading="lazy" decoding="async"></div>
+            <div class="project-content">
+              <span class="project-category">Cyber security toolkit</span>
+              <h3 class="project-title"><a href="https://mrofficial.freedev.app/" target="_blank" rel="noopener noreferrer">MR Official Cyber Security Toolkit</a></h3>
+              <p class="project-description">A web-based cybersecurity toolkit that provides a collection of security and reconnaissance tools in one centralized platform. It is designed for security learning, testing, and ethical cybersecurity workflows with a simple and user-friendly interface.</p>
+              <div class="tag-list project-tech" aria-label="Technologies: HTML, CSS, JavaScript"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+              <a class="project-link" href="https://mrofficial.freedev.app/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 id="skills-title">Skills &amp; services</h2>
+          <p>Technologies and areas of work from my toolkit.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card skill-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Backend</h3>
+            <div class="tag-list"><span class="tag">PHP</span><span class="tag">Laravel 12</span><span class="tag">MySQL</span><span class="tag">REST APIs</span></div>
+          </article>
+          <article class="card skill-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Frontend</h3>
+            <div class="tag-list"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">jQuery</span></div>
+          </article>
+          <article class="card skill-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Other technologies</h3>
+            <div class="tag-list"><span class="tag">MERN Stack</span><span class="tag">Git</span><span class="tag">GitHub</span></div>
+          </article>
+          <article class="card skill-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Tools &amp; workflows</h3>
+            <div class="tag-list"><span class="tag">VS Code</span><span class="tag">Database Management</span><span class="tag">Debugging</span></div>
+          </article>
+          <article class="card skill-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Networking</h3>
+            <div class="tag-list"><span class="tag">CCNA</span><span class="tag">Routing</span><span class="tag">Switching</span><span class="tag">Network fundamentals</span></div>
+          </article>
+          <article class="card skill-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Professional skills</h3>
+            <div class="tag-list"><span class="tag">Graphic Design</span><span class="tag">Data Entry</span><span class="tag">Computer Operations</span><span class="tag">Sales &amp; Marketing Support</span><span class="tag">Communication</span></div>
+          </article>
+        </div>
+        <h3 class="services-title reveal">Typing &amp; documentation services</h3>
+        <div class="services-grid">
+          <article class="card service-card reveal"><span class="card-light" aria-hidden="true"></span><h3>Typing &amp; data entry</h3><p>English &amp; Urdu typing · Data entry</p></article>
+          <article class="card service-card reveal"><span class="card-light" aria-hidden="true"></span><h3>Word &amp; PDF</h3><p>MS Word preparation and editing · PDF to Word / Word to PDF conversion</p></article>
+          <article class="card service-card reveal"><span class="card-light" aria-hidden="true"></span><h3>Documents</h3><p>CVs · Applications · Letters · Official documents</p></article>
+          <article class="card service-card reveal"><span class="card-light" aria-hidden="true"></span><h3>Document quality</h3><p>Accurate formatting, proofreading and document management</p></article>
+        </div>
+        <p class="languages-line reveal"><strong>Languages</strong> English · Urdu · Pashto</p>
+      </div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 id="education-title">Education &amp; certifications</h2>
+        </div>
+        <div class="credentials-grid">
+          <article class="card credential-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Education</h3>
+            <div class="credential-list">
+              <div class="credential-item">
+                <h4>BS Computer Science</h4>
+                <p>University of Agriculture, D.I. Khan · Sep 2022 - Oct 2026</p>
+                <p>Final-year project: E-commerce</p>
+              </div>
+              <div class="credential-item">
+                <h4>Diploma in Information Technology (DIT)</h4>
+                <p>GCMS D.I. Khan – KP Board of Technical &amp; Commerce Education, Peshawar · 2022</p>
+                <p>Awarded 7 Feb 2023 · Grade A · 1048/1400</p>
+              </div>
+              <div class="credential-item">
+                <h4>ICS (Intermediate in Computer Science)</h4>
+                <p>GHSS Shahoor SWTD · 2020 - 2022</p>
+              </div>
+            </div>
+          </article>
+          <article class="card credential-card reveal">
+            <span class="card-light" aria-hidden="true"></span>
+            <h3>Certifications</h3>
+            <div class="credential-list">
+              <div class="credential-item">
+                <h4>MERN Stack Development</h4>
+                <p>Merged Area Digital Connect Program – KPITB, Govt. of Khyber Pakhtunkhwa · 3 months · 14 Nov 2025 · CRN 764</p>
+              </div>
+              <div class="credential-item">
+                <h4>Cisco Certified Network Associate (CCNA)</h4>
+                <p>SINA Institute of Networks &amp; Aesthetics, Islamabad · 29 Jun - 28 Aug 2025 · Ref. CCNA-25Q3-791</p>
+              </div>
+              <div class="credential-item">
+                <h4>Internship Certificate</h4>
+                <p>Savills Pakistan (Pvt.) Ltd – Residential Sales &amp; Marketing · 2 months · 23 Sep 2026</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-copy reveal">
+            <h2 id="contact-title">Let's build<br>something together.</h2>
+            <p>Open to freelance work, collaborations, and full-time roles. Reach out through whichever works best for you.</p>
+          </div>
+          <div class="contact-links">
+            <a class="card contact-link reveal" href="mailto:riazmuhammad000032@gmail.com">
+              <span class="card-light" aria-hidden="true"></span>
+              <small>EMAIL</small>
+              <span>riazmuhammad000032@gmail.com</span>
+            </a>
+            <a class="card contact-link reveal" href="tel:+923095640176">
+              <span class="card-light" aria-hidden="true"></span>
+              <small>PHONE</small>
+              <span>+92 309 5640176</span>
+            </a>
+            <div class="contact-socials reveal" aria-label="Social profiles">
+              <a class="social-link" href="https://whatsapp.com/channel/0029VaDP6KwD8SDvKLbDL41E" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="social-link" href="https://www.facebook.com/muhammad.riaz.594005?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a class="social-link" href="https://github.com/raizmuhammad000032-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="social-link" href="http://linkedin.com/in/muhammad-riaz-50b315360" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Muhammad Riaz</p>
+      <a class="footer-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const primaryNav = document.getElementById("primaryNav");
+    const navViewport = document.getElementById("navViewport");
+    const navScrim = document.getElementById("navScrim");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    function updateThemeButton() {
+      const isLight = root.dataset.theme === "light";
+      themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+    }
+
+    themeToggle.addEventListener("click", function () {
+      const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+      root.dataset.theme = nextTheme;
+      updateThemeButton();
+      try {
+        localStorage.setItem("portfolio-theme", nextTheme);
+      } catch (error) {
+        console.warn("The theme preference could not be saved.", error);
+      }
+    });
+    updateThemeButton();
+
+    function closeMenu() {
+      navViewport.classList.remove("is-open");
+      navScrim.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+      navViewport.classList.toggle("is-open", isOpen);
+      navScrim.classList.toggle("is-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    });
+    navScrim.addEventListener("click", closeMenu);
+    primaryNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMenu();
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 760) closeMenu();
+    });
+
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    const revealItems = document.querySelectorAll(".reveal");
+    function finishReveal(item) {
+      item.classList.add("is-revealed");
+      item.classList.remove("reveal", "is-visible");
+    }
+
+    if (reduceMotion.matches || !("IntersectionObserver" in window)) {
+      revealItems.forEach(function (item) {
+        finishReveal(item);
+      });
+    } else {
+      const revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const item = entry.target;
+            item.classList.add("is-visible");
+            let finished = false;
+            function onRevealEnd(event) {
+              if (event.target === item && event.propertyName === "transform") {
+                finished = true;
+                item.removeEventListener("transitionend", onRevealEnd);
+                finishReveal(item);
+              }
+            }
+
+            item.addEventListener("transitionend", onRevealEnd);
+            window.setTimeout(function () {
+              if (!finished && item.classList.contains("is-visible")) {
+                item.removeEventListener("transitionend", onRevealEnd);
+                finishReveal(item);
+              }
+            }, 1100);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
+
+      const revealGroups = new Map();
+      revealItems.forEach(function (item) {
+        const group = item.parentElement;
+        const index = revealGroups.get(group) || 0;
+        item.style.setProperty("--reveal-delay", Math.min(index * 75, 375) + "ms");
+        revealGroups.set(group, index + 1);
+        revealObserver.observe(item);
+      });
+    }
+
+    const sectionLinks = new Map();
+    document.querySelectorAll(".primary-nav a[href^='#']").forEach(function (link) {
+      const section = document.querySelector(link.getAttribute("href"));
+      if (section) sectionLinks.set(section, link);
+    });
+
+    if ("IntersectionObserver" in window) {
+      const activeObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          const link = sectionLinks.get(entry.target);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            sectionLinks.forEach(function (navLink) {
+              navLink.removeAttribute("aria-current");
+            });
+            link.setAttribute("aria-current", "location");
+          }
+        });
+      }, { rootMargin: "-28% 0px -62% 0px" });
+
+      sectionLinks.forEach(function (_, section) {
+        activeObserver.observe(section);
+      });
+    }
+
+    if (finePointer.matches && !reduceMotion.matches) {
+      document.querySelectorAll(".card").forEach(function (card) {
+        card.addEventListener("pointermove", function (event) {
+          const bounds = card.getBoundingClientRect();
+          const x = event.clientX - bounds.left;
+          const y = event.clientY - bounds.top;
+          const halfWidth = bounds.width / 2;
+          const halfHeight = bounds.height / 2;
+          const rotateY = ((x - halfWidth) / halfWidth) * 7;
+          const rotateX = ((halfHeight - y) / halfHeight) * 7;
+          card.style.setProperty("--rotate-x", rotateX.toFixed(2) + "deg");
+          card.style.setProperty("--rotate-y", rotateY.toFixed(2) + "deg");
+          card.style.setProperty("--light-x", (x - 110) + "px");
+          card.style.setProperty("--light-y", (y - 110) + "px");
+        });
+
+        card.addEventListener("pointerleave", function () {
+          card.style.setProperty("--rotate-x", "0deg");
+          card.style.setProperty("--rotate-y", "0deg");
+          card.style.setProperty("--light-x", "-280px");
+          card.style.setProperty("--light-y", "-280px");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
